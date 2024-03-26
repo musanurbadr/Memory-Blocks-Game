@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-size: Arial , Tahoma , sans-serif;
+}
+.control-buttons{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1000%;
+    z-index: 2;
+    background-color: rgb(15, 247, 178 , 0.9);
+
+}
+.control-buttons span{
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50% , -50%);
+    color: #fff;
+    background-color: #f44336;
+    padding: 15px 25px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+.info-container{
+    width: 1000px;
+    margin: 20px auto 0 ;
+    background-color: #F6F6F6F6;
+    padding: 20px;
+    font-size: 24px;
+    overflow: hidden;
+    border: 2px solid #2196f3;
+}
+.info-container .name {
+    float: left;
+    width: 50%;
+
+}
+.info-container .tries{
+    float:  right;
+    width: 50%;
+    text-align: right;
+
+}
+.memory-game-block{
+    display: flex;
+    width: 1200px;
+    flex-wrap: wrap;
+    margin: 20px auto;
+}
+.memory-game-block .game-block{
+    height: auto;
+    transition: transform .5s ;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+    flex: 1 0 200px; 
+    margin: 0 13px 20px;
+}
+.memory-game-block .game-block .face-front{
+    background-color: #333;
+    line-height: 200px;
+}
+.memory-game-block .game-block .face-front:before{
+    content: "?";
+    color: #fff;
+    font-size: 140px;
+    font-weight: bold;
+} 
+.memory-game-block .game-block .face-back{
+    background-color: #e1af0c;
+    transform:  rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.memory-game-block .face-back {
+    background-color: #333;
+    font-size: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+.memory-game-block .game-block .face-front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border: 5px solid #2196f3;
+    align-items: center;
+}
+
+.memory-game-block .game-block.is-flipped{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+
+}
