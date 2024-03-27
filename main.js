@@ -15,7 +15,10 @@ document.querySelector(".control-buttons span").onclick = function(){
 
 let duration = 1000; 
 
-let blockscontainer = document.querySelector("..memory-game-block");
+let blockscontainer = document.querySelector(".memory-game-block");
 
 let blocks = Array.from(blockscontainer.children);
-console.log(blocks);
+
+let orderRagce = [...Array(blocks.length).keys()];
+
+console.log(orderRagce);
