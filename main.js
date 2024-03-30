@@ -51,7 +51,7 @@ function flipBlock(selectedBolock){
         stopClicking();
 
         //Check Mactched Block Function 
-
+        checkMatchedBocks (allFileppedBlocks[0] , allFileppedBlocks[1]);
 
     }
 }
@@ -64,10 +64,32 @@ function stopClicking (){
     setTimeout(() => {
         //renmove class NO clicking Afeter The durc
         blockscontainer.classList.remove('no-clicking');
-    }, duration);
+    }, duration);  
 }
 
+//Check Matched Block 
+function checkMatchedBocks(flipBlock , selectedBolock  ){
+    let trisElement = document.querySelector('.tries span')
+    if (flipBlock.dataset.technology === selectedBolock.dataset.technology ){
+        flipBlock.classList.remove("is-flipped")
+        selectedBolock.classList.remove("is-flipped")
+        
 
+        flipBlock.classList.add("has-match");
+        selectedBolock.classList.add("has-match");
+        
+        document.getElementById('success').play();
+    }else{
+        trisElement.innerHTML = parseInt(trisElement.innerHTML ) + 1 ; 
+
+        setTimeout(( ) =>{
+            flipBlock.classList.remove ('is-flipped');
+            selectedBolock.classList.remove ('is-flipped');
+        }, duration );
+
+        document.getElementById('success').play();
+    }
+}
 //shuffel function
 function shuffle(array){
     //Seting Vars 
