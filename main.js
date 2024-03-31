@@ -79,6 +79,9 @@ function checkMatchedBocks(flipBlock , selectedBolock  ){
         selectedBolock.classList.add("has-match");
         
         document.getElementById('success').play();
+
+        checkGameOver(); // Check if the game is over after each match
+
     }else{
         trisElement.innerHTML = parseInt(trisElement.innerHTML ) + 1 ; 
 
@@ -88,7 +91,34 @@ function checkMatchedBocks(flipBlock , selectedBolock  ){
         }, duration );
 
         document.getElementById('success').play();
+
+        
     }
+}
+//Check if the game is over
+function checkGameOver() {
+    let matchedBlocks = document.querySelectorAll('.memory-game-block .has-match');
+    if (matchedBlocks.length === blocks.length) {
+        endGame1();
+    }
+}
+
+//Function to display congratulatory message when the game ends
+function endGame1(){
+    // Create Popup Div
+    let div = document.createElement("div");
+
+    // Create Text Element
+    let divText = document.createTextNode(`Congratulations! You have completed the game.`);
+
+    // Append Child To the Div 
+    div.appendChild(divText);
+
+    // Add Class On Div 
+    div.className = 'game-over-message';
+
+    // Append To the Body 
+    document.body.appendChild(div);
 }
 //shuffel function
 function shuffle(array){
@@ -115,4 +145,5 @@ function shuffle(array){
 
     }
     return array ; 
+    
 }
